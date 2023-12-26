@@ -20,7 +20,7 @@ app.use(cors(
   app.use(cors({
     origin: ['https://mern-chat-app-backend-six.vercel.app/'],
     credentials: true
-  }));
+  }))
 ));
 app.use(express.json());
 app.use(cookieParser());

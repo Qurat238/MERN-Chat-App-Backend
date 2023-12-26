@@ -16,12 +16,7 @@ import ChatRoute from "./routes/ChatRoute.js";
 import MessageRoute from "./routes/MessageRoute.js";
 
 const app = express();
-app.use(cors(
-  app.use(cors({
-    origin: ['https://mern-chat-app-backend-six.vercel.app/'],
-    credentials: true
-  }))
-));
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended:true}));

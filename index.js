@@ -18,7 +18,7 @@ import MessageRoute from "./routes/MessageRoute.js";
 const app = express();
 app.use(cors(
   {
-    origin:["https://mern-chat-app-frontend-jxcjq9seq-qurat238.vercel.app/"],
+    origin:["https://mern-chat-app-frontend-chi.vercel.app/"],
     methods:["POST", "GET"],
     credentials:true
   }

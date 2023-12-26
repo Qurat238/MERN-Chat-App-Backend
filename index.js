@@ -95,6 +95,10 @@ app.use('/api/v1/users', UserRoute);
 app.use('/api/v1/chats', ChatRoute);
 app.use('/api/v1/messages', MessageRoute);
 
+app.get("/",(req,res) => {
+  res.json("Hello");
+});
+
 /*----------------------------------------Deployment---------------------------------------------*/
 
 //To run frontend and backend on same port

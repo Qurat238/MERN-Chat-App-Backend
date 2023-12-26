@@ -50,7 +50,7 @@ const server = app.listen(process.env.PORT, () => {
 const io = new Server(server, {
   pingTimeout:60000,
   cors: {
-    origin: "https://mern-chat-app-frontend-chi.vercel.app/"
+    origin:"https://mern-chat-app-frontend-chi.vercel.app/",methods:["GET","POST"],credentials:true,allowedHeaders:["Access-Control-Allow-Origin:https://mern-chat-app-frontend-chi.vercel.app/"]
   }
 })
 

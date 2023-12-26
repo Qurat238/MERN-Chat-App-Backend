@@ -104,8 +104,8 @@ app.get("/",(req,res) => {
 //To run frontend and backend on same port
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-app.use(express.static(join(__dirname, "../MERN-Chat-App-Frontend/build")));
+app.use(express.static(join(__dirname, "./frontend/build")));
 app.get("*",(req,res) => {
-    res.sendFile(resolve(__dirname, "../MERN-Chat-App-Frontend/build/index.html"));
+    res.sendFile(resolve(__dirname, "./frontend/build/index.html"));
 });
 /*----------------------------------------Deployment---------------------------------------------*/

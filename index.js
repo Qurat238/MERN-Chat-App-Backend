@@ -28,14 +28,14 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(fileUpload());
 
-// app.use(function(req, res, next) {
-//   res.setHeader("Access-Control-Allow-Origin", "*");
-// 	res.setHeader("Access-Control-Allow-Credentials", "true");
-// 	res.setHeader("Access-Control-Max-Age", "1800");
-// 	res.setHeader("Access-Control-Allow-Headers", "content-type");
-// 	res.setHeader("Access-Control-Allow-Methods","PUT, POST, GET, DELETE, PATCH, OPTIONS");
-//   next();
-// });
+app.use(function(req, res, next) {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader("Access-Control-Allow-Credentials", "true");
+	res.setHeader("Access-Control-Max-Age", "1800");
+	res.setHeader("Access-Control-Allow-Headers", "content-type");
+	res.setHeader("Access-Control-Allow-Methods","PUT, POST, GET, DELETE, PATCH, OPTIONS");
+  next();
+});
 
 if(process.env.NODE_ENV !== "PRODUCTION"){
 // config
@@ -52,7 +52,7 @@ const server = app.listen(process.env.PORT, () => {
 const io = new Server(server, {
   pingTimeout:60000,
   cors: {
-    origin: "*"
+    origin: "https://mern-chat-app-frontend-chi.vercel.app/"
   }
 })
 

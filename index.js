@@ -16,26 +16,26 @@ import ChatRoute from "./routes/ChatRoute.js";
 import MessageRoute from "./routes/MessageRoute.js";
 
 const app = express();
-app.use(cors(
-  {
-    origin:["https://mern-chat-app-frontend-chi.vercel.app/","https://mern-chat-app-frontend-git-main-qurat238.vercel.app","https://mern-chat-app-frontend-op6kq3b1k-qurat238.vercel.app"],
-    methods:["POST", "GET"],
-    credentials:true
-  }
-));
+// app.use(cors(
+//   {
+//     origin:["https://mern-chat-app-frontend-chi.vercel.app/","https://mern-chat-app-frontend-git-main-qurat238.vercel.app","https://mern-chat-app-frontend-op6kq3b1k-qurat238.vercel.app"],
+//     methods:["POST", "GET"],
+//     credentials:true
+//   }
+// ));
 app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(fileUpload());
 
-app.use(function(req, res, next) {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-	res.setHeader("Access-Control-Allow-Credentials", "true");
-	res.setHeader("Access-Control-Max-Age", "1800");
-	res.setHeader("Access-Control-Allow-Headers", "content-type");
-	res.setHeader("Access-Control-Allow-Methods","PUT, POST, GET, DELETE, PATCH, OPTIONS");
-  next();
-});
+// app.use(function(req, res, next) {
+//   res.setHeader("Access-Control-Allow-Origin", "*");
+// 	res.setHeader("Access-Control-Allow-Credentials", "true");
+// 	res.setHeader("Access-Control-Max-Age", "1800");
+// 	res.setHeader("Access-Control-Allow-Headers", "content-type");
+// 	res.setHeader("Access-Control-Allow-Methods","PUT, POST, GET, DELETE, PATCH, OPTIONS");
+//   next();
+// });
 
 if(process.env.NODE_ENV !== "PRODUCTION"){
 // config
@@ -105,6 +105,8 @@ cloudinary.config({
   api_key:process.env.CLOUDINARY_API_KEY,
   api_secret:process.env.CLOUDINARY_API_SECRET
 });
+
+app.use(cors());
 
 app.use('/api/v1/users', UserRoute);
 app.use('/api/v1/chats', ChatRoute);

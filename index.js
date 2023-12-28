@@ -17,11 +17,11 @@ import MessageRoute from "./routes/MessageRoute.js";
 
 const app = express();
 app.use(cors(
-  {
-    origin:["https://mern-chat-app-frontend-chi.vercel.app","https://mern-chat-app-frontend-git-main-qurat238.vercel.app","https://mern-chat-app-frontend-op6kq3b1k-qurat238.vercel.app"],
-    methods:["POST", "GET"],
-    credentials:true
-  }
+  // {
+  //   origin:["https://mern-chat-app-frontend-chi.vercel.app","https://mern-chat-app-frontend-git-main-qurat238.vercel.app","https://mern-chat-app-frontend-op6kq3b1k-qurat238.vercel.app"],
+  //   methods:["POST", "GET"],
+  //   credentials:true
+  // }
 ));
 app.use(express.json());
 app.use(cookieParser());
@@ -105,8 +105,6 @@ cloudinary.config({
   api_key:process.env.CLOUDINARY_API_KEY,
   api_secret:process.env.CLOUDINARY_API_SECRET
 });
-
-app.use(cors());
 
 app.use('/api/v1/users', UserRoute);
 app.use('/api/v1/chats', ChatRoute);

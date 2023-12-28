@@ -16,13 +16,13 @@ import ChatRoute from "./routes/ChatRoute.js";
 import MessageRoute from "./routes/MessageRoute.js";
 
 const app = express();
-// app.use(cors(
-//   {
-//     origin:["https://mern-chat-app-frontend-chi.vercel.app/","https://mern-chat-app-frontend-git-main-qurat238.vercel.app","https://mern-chat-app-frontend-op6kq3b1k-qurat238.vercel.app"],
-//     methods:["POST", "GET"],
-//     credentials:true
-//   }
-// ));
+app.use(cors(
+  {
+    origin:["https://mern-chat-app-frontend-chi.vercel.app","https://mern-chat-app-frontend-git-main-qurat238.vercel.app","https://mern-chat-app-frontend-op6kq3b1k-qurat238.vercel.app"],
+    methods:["POST", "GET"],
+    credentials:true
+  }
+));
 app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended:true}));

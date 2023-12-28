@@ -25,16 +25,17 @@ const UserSchema = new mongoose.Schema({
     avatar: {
         public_id: {
             type:String,
-            // required:true
+            required:true
         },
         url: {
             type:String,
-            // required:true
+            required:true
         }
+    },
+    createdAt: {
+        type:Date,
+        default:Date.now 
     }
-},
-{
-    timestamps: true,
 });
 
 UserSchema.pre("save", async function(next){
